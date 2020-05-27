@@ -1,0 +1,11 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: glusterfs-simple
+provisioner: gluster.org/glusterfs-simple
+parameters:
+  forceCreate: "true"
+  brickrootPaths: "gfs1:/data,gfs2:/data,gfs3:/data"
+  volumeType: "replica 3"
+  namespace: "default"
+  selector: "glusterfs-node==daemonset"
